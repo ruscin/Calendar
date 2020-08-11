@@ -7,23 +7,7 @@ import allReducers from "./js/reducers/index"
 import { Provider } from "react-redux"
 import { useSelector } from "react-redux"
 
-const mongoose = require("mongoose");
-const uri = process.env.MONGO_CONNECTION_URL;
-const mongoConfig = {
-    useNewUrlParser: true,
-    userCreateIndex: true,
 
-}
-mongoose.connect(uri, mongoConfig);
-mongoose.connection.on("error", (err => {
-    console.log(err);
-    process.exit(1);
-}))
-
-mongoose.connection.on("connected", () => {
-    console.log("polaczona");
-
-})
 
 const store = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
